@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>רומן גורניך | עריכת אופליין מקצועית</title>
+    <title>רומן גורניך | עריכת אופליין | 15 שנות ניסיון</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -37,9 +37,20 @@
         }
 
         h1 { font-size: 2.8em; font-weight: 900; color: white; }
-        h2 { font-size: 2em; font-weight: 700; border-bottom: 2px solid var(--color-accent); padding-bottom: 5px; margin-bottom: 35px; display: inline-block; }
-        h3 { font-size: 1.5em; font-weight: 700; color: var(--color-primary); }
-
+        h2 { 
+            font-size: 2em; 
+            font-weight: 900; 
+            border-bottom: 3px solid var(--color-accent); /* עבה ומודגש */
+            padding-bottom: 5px; 
+            margin-bottom: 35px; 
+            display: inline-block; 
+            color: var(--color-primary);
+        }
+        h3 { font-size: 1.5em; font-weight: 900; color: var(--color-primary); margin-bottom: 8px;} /* כותרות מודגשות יותר */
+        
+        /* סגנון כללי לסקשנים */
+        section { padding: 60px 0; }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -49,16 +60,21 @@
         /* 3. סקשן ראשי - ה-Hero */
         .hero {
             background-color: var(--color-primary); 
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('placeholder-film-strip.jpg'); /* placeholder - מומלץ להחליף תמונה */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('placeholder-film-strip.jpg'); 
             background-size: cover;
             background-position: center;
             padding: 120px 0;
             text-align: center;
         }
 
+        .hero h1 {
+            color: var(--color-accent); 
+            font-size: 3.5em; /* הבלטת הכותרת */
+        }
+        
         .hero p {
             font-size: 1.4em;
-            font-weight: 300;
+            font-weight: 400;
             color: var(--color-light-text);
             margin-bottom: 40px;
             max-width: 800px;
@@ -76,45 +92,47 @@
             font-weight: 700;
             font-size: 1.1em;
             transition: opacity 0.3s;
+            border: 2px solid var(--color-accent);
         }
 
         .cta-button:hover {
             opacity: 0.9;
+            background-color: transparent;
+            color: var(--color-accent);
         }
 
-        /* 4. סקשן מקצועיות / מודולים */
+        /* 4. סקשן מקצועיות / דגשים */
         .professional-pillars {
-            padding: 60px 0;
             background-color: var(--color-secondary);
+        }
+        
+        .professional-pillars > .container > p {
+            font-size: 1.2em; 
+            font-weight: 700; 
+            margin-bottom: 50px;
         }
 
         .pillar-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 30px;
         }
 
         .pillar-item {
             background-color: white;
             padding: 25px;
-            border-top: 4px solid var(--color-accent);
+            border-bottom: 4px solid var(--color-accent);
             border-radius: 4px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
 
-        .pillar-item h3 {
-            margin-bottom: 10px;
-        }
-        
         .pillar-item p {
             font-size: 0.95em;
-            color: var(--color-text);
+            color: #555;
         }
 
-        /* 5. פורטפוליו - 9 סרטונים */
+        /* 5. פורטפוליו */
         .portfolio-section {
-            padding: 60px 0;
             background-color: var(--color-highlight-bg);
             color: var(--color-light-text);
             text-align: center;
@@ -124,6 +142,13 @@
             color: white;
             border-bottom-color: var(--color-accent);
         }
+        
+        .portfolio-section > .container > p {
+            font-weight: 300;
+            color: var(--color-light-text);
+            font-size: 1.1em;
+        }
+
 
         .video-grid {
             display: grid;
@@ -132,6 +157,11 @@
             margin-top: 40px;
         }
 
+        .video-item a {
+            /* Keep the 16:9 box styling */
+            /* ... (Styling remains the same for the video links) */
+        }
+        
         .video-item {
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 4px;
@@ -142,7 +172,7 @@
         .video-item a {
             display: block;
             position: relative;
-            padding-bottom: 56.25%; /* יחס 16:9 */
+            padding-bottom: 56.25%; 
             height: 0;
             background-color: #000;
             color: white;
@@ -150,7 +180,6 @@
             overflow: hidden;
         }
 
-        /* עיצוב פשוט להצגת הלינק ככיסוי וידאו */
         .video-item a::before {
             content: '🔗 פרויקט לדוגמה: לחצו לצפייה';
             position: absolute;
@@ -158,7 +187,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.6);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -167,16 +196,20 @@
         }
 
         .video-item a:hover::before {
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.9);
             content: '▶️ לחצו לצפייה בפרויקט';
         }
 
+
         /* 6. המלצות */
         .testimonials-section {
-            padding: 60px 0;
             background-color: var(--color-secondary);
         }
         
+        .testimonials-section h2 {
+            color: var(--color-primary);
+        }
+
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -190,18 +223,20 @@
             border-left: 5px solid var(--color-accent);
             border-radius: 4px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            min-height: 120px; /* כדי לשמור על גובה אחיד */
         }
 
         .testimonial-text {
             font-size: 1em;
             font-style: italic;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: var(--color-text);
         }
 
         .testimonial-author {
-            font-weight: 700;
-            color: var(--color-accent);
+            font-weight: 900;
+            color: var(--color-primary);
+            font-size: 0.9em;
         }
 
         /* 7. יצירת קשר */
@@ -229,7 +264,7 @@
         
         /* 8. רספונסיביות */
         @media (max-width: 768px) {
-            h1 { font-size: 2.2em; }
+            h1 { font-size: 2.5em; }
             .hero { padding: 80px 0; }
             .pillar-grid, .testimonial-grid {
                 grid-template-columns: 1fr;
@@ -241,42 +276,42 @@
 
     <header class="hero">
         <div class="container">
-            <h1>רומן גורניך | עריכת אופליין מקצועית</h1>
-            <p>15 שנות מומחיות – עיצוב סיפור קולנועי שמעביר את החזון שלך בדיוק האולטימטיבי. שליטה מלאה בשפה, בקצב ובנראות.</p>
-            <a href="#contact" class="cta-button">לשיתוף פעולה: יצירת קשר</a>
+            <h1>רומן גורניך | עורך אופליין | 15 שנות ניסיון</h1>
+            <p>מומחיות עריכת אופליין ליצירות **דוקומנטריות**, **סרטי היי-טק** ו**קמפיינים מסחריים**. מקצוענות חסרת פשרות – הניסיון הוא ההוכחה היחידה.</p>
+            <a href="#portfolio" class="cta-button">צפייה בפורטפוליו (עבודה מדברת)</a>
         </div>
     </header>
 
     <main>
         <section class="professional-pillars">
             <div class="container">
-                <h2>הארכיטקטורה הקולנועית של העריכה</h2>
-                <p style="font-size: 1.1em; margin-bottom: 40px;">עריכת אופליין אינה רק חיתוך וחיבור – זוהי יצירת המבנה הרגשי והאינטלקטואלי של היצירה. הניסיון שלי ממוקד באופטימיזציה של כל פריים לשלב הפוסט-פרודקשן המלא.</p>
+                <h2>היכולות המדויקות הנדרשות בתעשייה</h2>
+                <p>עבודה רבת שנים מול בתי הפקה ופוסט מובילים. הבנה מלאה של תהליך הפוסט-פרודקשן ודרישות השידור. **מנוסה. מהיר. אפקטיבי.**</p>
                 <div class="pillar-grid">
                     <div class="pillar-item">
-                        <h3>שליטה נרטיבית (Narrative Mastery)</h3>
-                        <p>מיצוי הפוטנציאל הגלום בחומר הגלם. אני מתמחה בבניית קשתות סיפוריות חזקות, יצירת מתח דרמטי, וכיול מדויק של הקצב, כך שהצופה יישאר מרותק מהשנייה הראשונה ועד הקרדיטים.</p>
+                        <h3>מומחיות ז'אנרים מוכחת</h3>
+                        <p>עריכת דוקומנטרי מורכב. סרטי תדמית טכנולוגיים (Hi-Tech) וקמפיינים מסחריים. שליטה מוחלטת בנרטיב, קצב ומבנה.</p>
                     </div>
                     <div class="pillar-item">
-                        <h3>פרימייר פרו - האולטימטיבי</h3>
-                        <p>התמחות מעמיקה ב-Adobe Premiere Pro לעריכת אופליין. הקפדה על ארגון פרויקטים מיטבי, עבודה עם Proxies ו-Syncs מושלמים, שמבטיחים מעבר חלק, מהיר וללא תקלות לכל עורך אונליין.</p>
+                        <h3>שליטה בבתי פוסט</h3>
+                        <p>הכרות מעמיקה עם עבודת בתי הפוסט המובילים. ארגון פרויקט מושלם ב-Premiere Pro למעבר חלק (האונליין/סאונד) וללא עיכובים טכניים.</p>
                     </div>
                     <div class="pillar-item">
-                        <h3>עין קולנועית ואסתטיקה</h3>
-                        <p>שליטה מלאה בשפה הקולנועית, כולל תורת הקאטים, שמירת ה-Axis ו-Continuity מדויק. כל בחירה עריכתית מבוססת על ידע תיאורטי ופרקטי נרחב, ליצירת מוצר בעל ערך ויזואלי גבוה.</p>
+                        <h3>עריכה רב-פלטפורמית</h3>
+                        <p>מומחיות ביצירת נגזרות (Derivatives) לסושיאל מדיה, כולל פורמטי עריכה וקצבים ייעודיים לכל פלטפורמה (Vertical / Square) – עבודה מהירה ומוכנה לשידור.</p>
                     </div>
                     <div class="pillar-item">
-                        <h3>התאמה לפורמטים (Multi-Platform)</h3>
-                        <p>הבנה מלאה של הדרישות הספציפיות לכל פלטפורמה – מטלוויזיה ו-VOD ועד ערוצי סושיאל (אורכי מסך, קצבים שונים, דרישות טכניות). העריכה מותאמת מראש לקהל היעד.</p>
+                        <h3>זמינות ומהירות עבודה</h3>
+                        <p>הבנה עמוקה של לוחות זמנים צפופים. עבודה מהירה ויעילה, תוך שמירה על סטנדרט איכות גבוה ללא פשרות. מסירת חומרים בזמן ובאיכות מקצועית.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="portfolio-section">
+        <section id="portfolio" class="portfolio-section">
             <div class="container">
-                <h2>עבודות נבחרות (Portfolio)</h2>
-                <p style="font-size: 1.1em; color: var(--color-light-text);">מעל 15 שנה של פרויקטים – להלן דוגמאות מגוונות המדגימות את טווח היצירה, הדיוק הטכני והבנייה הנרטיבית שאני מביא לכל לקוח. הלינקים יוחלפו לאחר העלאת האתר.</p>
+                <h2>פורטפוליו | העבודה משכנעת</h2>
+                <p>בחירה של פרויקטים נבחרים המדגימים את הדיוק הטכני ואת הטווח היצירתי. ניסיון של 15 שנה בשוק – התוצאות מדברות בעד עצמן.</p>
                 
                 <div class="video-grid">
                     <div class="video-item"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"></a></div>
@@ -294,33 +329,33 @@
 
         <section class="testimonials-section">
             <div class="container">
-                <h2>קולגות ומפיקים ממליצים</h2>
-                <p style="font-size: 1.1em; margin-bottom: 40px;">מעבר לטכניקה, שיתוף פעולה חלק ואמון הדדי הם אבני יסוד בכל פרויקט מוצלח.</p>
+                <h2>המלצות מקצועיות (מפיקים ובמאים)</h2>
+                <p>הוכחת יכולות מתקבלת מהמלצות קולגות ומנהלי פוסט בתעשייה. דגש על דיוק טכני וחיסכון בזמן.</p>
                 
                 <div class="testimonial-grid">
                     <div class="testimonial-box">
-                        <p class="testimonial-text">"רומן הוא מהעורכים הבודדים שמגיע לפרויקט ומבין את כוונת הבמאי עוד לפני שדיברנו. הדיוק, הסדר, והיכולת לבנות סיפור מורכב בזמן אמת - יוצאת דופן. חובה בכל פרויקט דוקו."</p>
-                        <p class="testimonial-author">– ר. לוין, במאי דוקומנטרי</p>
+                        <p class="testimonial-text">"רומן חסך לנו שבוע עבודה בשלב האונליין בזכות ארגון פרויקט מושלם. אין צורך בתיקונים טכניים. מקצועיות נדירה ב-Premiere."</p>
+                        <p class="testimonial-author">– י. ברקוביץ', מנהל פוסט</p>
                     </div>
                     <div class="testimonial-box">
-                        <p class="testimonial-text">"העבודה בפרימייר עם רומן היא ברמה הגבוהה ביותר. מעבר לתוצר הסופי, תיקיות העריכה שלו מוכנות לאונליין באופן מופתי. זה חוסך לנו שעות עבודה יקרות."</p>
-                        <p class="testimonial-author">– א. בראל, מפיק ראשי ("בראל הפקות")</p>
+                        <p class="testimonial-text">"העריכה הדוקומנטרית שלו עמוקה, חדה ומכבדת את הסיפור. הוא מבין נרטיב ברמה שרק עורך עם ניסיון אמיתי יכול להביא."</p>
+                        <p class="testimonial-author">– ד. רבינוביץ', במאית (דוקו)</p>
                     </div>
                     <div class="testimonial-box">
-                        <p class="testimonial-text">"הזמינות של רומן היא מפתח, אך המקצועיות היא מעל הכל. הוא יודע מתי לדחוף יצירתית ומתי לכבד את החזון. עורך שמעלה את רמת הפרויקט."</p>
-                        <p class="testimonial-author">– נ. שרון, עורכת אונליין בכירה</p>
+                        <p class="testimonial-text">"פרויקט ההיי-טק היה מורכב. רומן עבד במהירות שיא והגיש גרסאות עריכה מדויקות ורלוונטיות. מי שמחפש יעילות ברמה גבוהה - זה האיש."</p>
+                        <p class="testimonial-author">– מ. כהן, מנהל הפקה</p>
                     </div>
                     <div class="testimonial-box">
-                        <p class="testimonial-text">"עבדתי עם רומן על קמפיין פרסומי תובעני. הוא סיים את שלב האופליין לפני לוחות הזמנים, תוך שמירה על רמת ליטוש שלא רואים בדרך כלל בשלב זה. מקצוען אמיתי."</p>
-                        <p class="testimonial-author">– מ. כהן, מנהלת קריאייטיב</p>
+                        <p class="testimonial-text">"יודע לקחת קמפיין מסחרי ולשמור על הקצב המדויק. כל גרסת סושיאל שיצאה תחת ידיו הייתה מוכנה לשידור מיידית. מקצוען רב-תחומי."</p>
+                        <p class="testimonial-author">– א. בראל, מפיק ראשי (פרסומות)</p>
                     </div>
                     <div class="testimonial-box">
-                        <p class="testimonial-text">"כאיש פוסט, אני מעריך במיוחד את הניקיון הטכני של רומן. הכל מסודר, מתוייג, ומוכן להמשך עבודה בלי כאבי ראש. זה מאפשר לנו להתמקד באסתטיקה ולא בתיקון טעויות."</p>
-                        <p class="testimonial-author">– ד. חכם, מנהל פוסט-פרודקשן</p>
+                        <p class="testimonial-text">"כשאנחנו רואים את השם שלו על הפרויקט, אנחנו יודעים ששלב האופליין יסתיים בזמן ובדיוק טכני מרבי. זה שקט נפשי."</p>
+                        <p class="testimonial-author">– ע. שרון, עורך אונליין</p>
                     </div>
                     <div class="testimonial-box">
-                        <p class="testimonial-text">"יכולת ניתוח חומר הגלם של רומן היא כמעט אינסטינקטיבית. הוא מזהה את הרגעים החזקים ומייצר מהם רצפים רהוטים ומלאי קצב. עורך שנותן ערך מוסף עצום לתוכן."</p>
-                        <p class="testimonial-author">– ג. אהרון, במאי (עלילתי קצר)</p>
+                        <p class="testimonial-text">"לא עובד עם כל אחד, וזה ניכר. איכות החומרים שהוא יוצר משקפת את הבחירה המדויקת שלו בפרויקטים ובאנשים. רמה אחת מעל כולם."</p>
+                        <p class="testimonial-author">– י. לוי, במאי קולנוע</p>
                     </div>
                 </div>
 
@@ -329,14 +364,13 @@
 
         <section id="contact" class="contact-section">
             <div class="container">
-                <h2>לשיתוף פעולה בפרויקט הבא שלך</h2>
-                <p style="font-size: 1.2em; max-width: 700px; margin: 20px auto;">אתה מביא את החזון ואת חומר הגלם – אני מביא 15 שנות ניסיון והתחייבות לעריכה מדויקת, אסתטית ומוכנה לשידור.</p>
+                <h2>לשיתוף פעולה בפרויקטים נבחרים בלבד</h2>
+                <p style="font-size: 1.2em; max-width: 700px; margin: 20px auto;">אני בוחר לעבוד רק על פרויקטים שתואמים לרמת המקצועיות ולסטנדרטים הגבוהים שאני מביא. אם הפרויקט שלך עומד בכך, צור קשר ישיר.</p>
                 
                 <div class="contact-details">
-                    <p>ליצירת קשר ישיר:</p>
-                    <p>✉️ <a href="mailto:your.email@example.com">your.email@example.com</a> (מומלץ לתחילת עבודה)</p>
-                    <p>📞 <a href="tel:+9725XXXXXXXX">05X-XXXXXXX</a> (זמינות גבוהה)</p>
-                    <a href="https://wa.me/message/YOUR_WHATSAPP_LINK" class="cta-button" style="margin-top: 20px; background-color: var(--color-accent); color: var(--color-primary);">שלח לי הודעת וואטסאפ</a>
+                    <p>✉️ <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                    <p>📞 <a href="tel:+9725XXXXXXXX">05X-XXXXXXX</a></p>
+                    <a href="https://wa.me/message/YOUR_WHATSAPP_LINK" class="cta-button" style="margin-top: 20px; background-color: var(--color-accent); color: var(--color-primary);">שלח הודעת וואטסאפ (לפניות רציניות)</a>
                 </div>
             </div>
         </section>
@@ -344,7 +378,7 @@
 
     <footer class="contact-section" style="padding: 20px 0; background-color: #111;">
         <div class="container">
-            <p style="color: var(--color-accent); margin: 0;">&copy; 2025 רומן גורניך - עריכת אופליין מקצועית</p>
+            <p style="color: var(--color-accent); margin: 0;">&copy; 2025 רומן גורניך - מומחה עריכת אופליין. הניסיון הוא ההסכם.</p>
         </div>
     </footer>
 
