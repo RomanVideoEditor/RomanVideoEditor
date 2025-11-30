@@ -149,7 +149,6 @@
             font-size: 1.1em;
         }
 
-
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -167,34 +166,57 @@
         .video-item a {
             display: block;
             position: relative;
-            padding-bottom: 56.25%; 
+            padding-bottom: 56.25%; /* יחס 16:9 */
             height: 0;
             background-color: #000;
             color: white;
             text-decoration: none;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-
-        .video-item a::before {
-            content: '🔗 פרויקט לדוגמה: לחצו לצפייה';
+        
+        /* סטיילינג לתמונה הממוזערת */
+        .video-thumbnail {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
+            object-fit: cover; /* מכסה את האזור */
+            transition: opacity 0.3s;
+        }
+        
+        /* סטיילינג לשכבת הכיסוי (Overlay) */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* כיסוי שחור שקוף */
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.1em;
-            transition: background-color 0.3s;
+            font-size: 1.2em;
+            font-weight: 700;
+            color: white;
+            opacity: 1;
+            transition: background-color 0.3s, opacity 0.3s;
+            cursor: pointer;
+            z-index: 10; /* מעל התמונה */
         }
 
-        .video-item a:hover::before {
-            background-color: rgba(0, 0, 0, 0.9);
-            content: '▶️ לחצו לצפייה בפרויקט';
+        .video-item a:hover .video-overlay {
+            background-color: rgba(0, 0, 0, 0.9); /* כהה יותר בריחוף */
+            opacity: 1; 
         }
-
+        
+        /* מבטל את ה-::before הישן */
+        .video-item a::before {
+            content: none !important; 
+        }
 
         /* 6. המלצות */
         .testimonials-section {
@@ -211,7 +233,6 @@
              margin-bottom: 40px;
              font-weight: 400;
         }
-
 
         .testimonial-grid {
             display: grid;
@@ -280,26 +301,26 @@
     <header class="hero">
         <div class="container">
             <h1>רומן גורניך | עורך אופליין | 15 שנות ניסיון</h1>
-            <p>אני מתמחה בעריכת אופליין ליצירות דוקומנטריות, היי-טק וקמפיינים מסחריים. אני מביא את הניסיון שלי לכל פרויקט</p>
-            <a href="#portfolio" class="cta-button">תיק עבודות</a>
+            <p>אני מתמחה בעריכת אופליין למגוון רחב של יצירות: **דוקומנטרי, היי-טק, פרסומות וסרטי תדמית**. אני עובד באופן קבוע עם מפיקים ובתי פוסט מהשורה הראשונה.</p>
+            <a href="#portfolio" class="cta-button">צפייה בפורטפוליו (העבודה שלי מדברת)</a>
         </div>
     </header>
 
     <main>
         <section class="professional-pillars">
             <div class="container">
-                <h2>למה לעבוד איתי?</h2>
-                <p>אני עובד שנים מול בתי הפקות ופוסט מובילים. יש לי הבנה מלאה של תהליך הפוסט-פרודקשן ודרישות השידור</p>
+                <h2>היכולות המדויקות שלי הנדרשות בתעשייה</h2>
+                <p>אני עובד שנים מול בתי הפקה ופוסט מובילים. יש לי הבנה מלאה של תהליך הפוסט-פרודקשן ודרישות השידור. **הניסיון שלי. המקצועיות שלי. הזמן שלך.**</p>
                 
                 <div class="pillar-grid">
                     
                     <div class="pillar-item">
                         <h3>1. אני עומד בלוחות זמנים</h3>
-                        <p>אני מתחייב למועד שנקבע. העבודה שלי מהירה, יעילה ושיטתית, כדי להבטיח ששלב האופליין לעולם לא מעכב את הפרויקט </p>
+                        <p>אני מתחייב למסירת חומרים במועד שנקבע. העבודה שלי מהירה, יעילה ושיטתית, כדי להבטיח ששלב האופליין לעולם לא מעכב את הפרויקט שלך.</p>
                     </div>
                     
                     <div class="pillar-item">
-                        <h3>2. אני מאורגן ומסודר</h3>
+                        <h3>2. ארגון פרויקט ל-Hand-Off מושלם</h3>
                         <p>העבודה אצלי מסודרת ומאורגנת בסטנדרטים הגבוהים ביותר. הפרויקט מוכן ל-**Hand-Off** מיידי: העורך הבא יקבל פרויקט נקי, מאורגן ומוכן להמשך עבודה חלקה.</p>
                     </div>
                     
@@ -333,15 +354,69 @@
                 <p>אני מציג בחירה של פרויקטים נבחרים המדגימים את הדיוק הטכני ואת הטווח היצירתי שלי. ניסיון של 15 שנה בשוק – התוצאות מדברות בעד עצמן.</p>
                 
                 <div class="video-grid">
-                    <div class="video-item"><a href="https://www.youtube.com/watch?v=cbqFpHi5gHE" target="_blank"></a></div>
-                    <div class="video-item"><a href="https://www.youtube.com/watch?v=5p2-EDX7-Ek" target="_blank"></a></div>
-                    <div class="video-item"><a href="https://www.youtube.com/watch?v=GFkN83F-DBU" target="_blank"></a></div>
-                    <div class="video-item"><a href="https://www.youtube.com/watch?v=VsiMUos3_58" target="_blank"></a></div>
-                    <div class="video-item"><a href="https://www.youtube.com/watch?v=N4iNxvFGA34" target="_blank"></a></div>
-                    <div class="video-item"><a href="https://www.youtube.com/watch?v=U3DrztgwcEI" target="_blank"></a></div>
-                    <div class="video-item"><a href="https://www.youtube.com/watch?v=e6aGP7W8uoE" target="_blank"></a></div>
-                    <div class="video-item"><a href="https://www.youtube.com/watch?v=rixmoZ4Y4Uk" target="_blank"></a></div>
-                    <div class="video-item"><a href="https://www.youtube.com/watch?v=YQLHXBK-sYM" target="_blank"></a></div>
+                    <div class="video-item">
+                        <a href="https://www.youtube.com/watch?v=cbqFpHi5gHE" target="_blank">
+                            <img src="https://img.youtube.com/vi/cbqFpHi5gHE/hqdefault.jpg" alt="צפייה בפרויקט לדוגמה 1" class="video-thumbnail">
+                            <span class="video-overlay">▶️ לחצו לצפייה בפרויקט</span>
+                        </a>
+                    </div>
+                    
+                    <div class="video-item">
+                        <a href="https://www.youtube.com/watch?v=5p2-EDX7-Ek" target="_blank">
+                            <img src="https://img.youtube.com/vi/5p2-EDX7-Ek/hqdefault.jpg" alt="צפייה בפרויקט לדוגמה 2" class="video-thumbnail">
+                            <span class="video-overlay">▶️ לחצו לצפייה בפרויקט</span>
+                        </a>
+                    </div>
+                    
+                    <div class="video-item">
+                        <a href="https://www.youtube.com/watch?v=GFkN83F-DBU" target="_blank">
+                            <img src="https://img.youtube.com/vi/GFkN83F-DBU/hqdefault.jpg" alt="צפייה בפרויקט לדוגמה 3" class="video-thumbnail">
+                            <span class="video-overlay">▶️ לחצו לצפייה בפרויקט</span>
+                        </a>
+                    </div>
+                    
+                    <div class="video-item">
+                        <a href="https://www.youtube.com/watch?v=VsiMUos3_58" target="_blank">
+                            <img src="https://img.youtube.com/vi/VsiMUos3_58/hqdefault.jpg" alt="צפייה בפרויקט לדוגמה 4" class="video-thumbnail">
+                            <span class="video-overlay">▶️ לחצו לצפייה בפרויקט</span>
+                        </a>
+                    </div>
+                    
+                    <div class="video-item">
+                        <a href="https://www.youtube.com/watch?v=N4iNxvFGA34" target="_blank">
+                            <img src="https://img.youtube.com/vi/N4iNxvFGA34/hqdefault.jpg" alt="צפייה בפרויקט לדוגמה 5" class="video-thumbnail">
+                            <span class="video-overlay">▶️ לחצו לצפייה בפרויקט</span>
+                        </a>
+                    </div>
+                    
+                    <div class="video-item">
+                        <a href="https://www.youtube.com/watch?v=U3DrztgwcEI" target="_blank">
+                            <img src="https://img.youtube.com/vi/U3DrztgwcEI/hqdefault.jpg" alt="צפייה בפרויקט לדוגמה 6" class="video-thumbnail">
+                            <span class="video-overlay">▶️ לחצו לצפייה בפרויקט</span>
+                        </a>
+                    </div>
+                    
+                    <div class="video-item">
+                        <a href="https://www.youtube.com/watch?v=e6aGP7W8uoE" target="_blank">
+                            <img src="https://img.youtube.com/vi/e6aGP7W8uoE/hqdefault.jpg" alt="צפייה בפרויקט לדוגמה 7" class="video-thumbnail">
+                            <span class="video-overlay">▶️ לחצו לצפייה בפרויקט</span>
+                        </a>
+                    </div>
+                    
+                    <div class="video-item">
+                        <a href="https://www.youtube.com/watch?v=rixmoZ4Y4Uk" target="_blank">
+                            <img src="https://img.youtube.com/vi/rixmoZ4Y4Uk/hqdefault.jpg" alt="צפייה בפרויקט לדוגמה 8" class="video-thumbnail">
+                            <span class="video-overlay">▶️ לחצו לצפייה בפרויקט</span>
+                        </a>
+                    </div>
+                    
+                    <div class="video-item">
+                        <a href="https://www.youtube.com/watch?v=YQLHXBK-sYM" target="_blank">
+                            <img src="https://img.youtube.com/vi/YQLHXBK-sYM/hqdefault.jpg" alt="צפייה בפרויקט לדוגמה 9" class="video-thumbnail">
+                            <span class="video-overlay">▶️ לחצו לצפייה בפרויקט</span>
+                        </a>
+                    </div>
+                    
                 </div>
             </div>
         </section>
@@ -383,12 +458,12 @@
 
         <section id="contact" class="contact-section">
             <div class="container">
-                <h2>רומן גורניך | עורך אופ ליין</h2>
-                <p style="font-size: 1.2em; max-width: 700px; margin: 20px auto;">אני בוחר לעבוד על פרויקטים שתואמים לרמת המקצועיות ולסטנדרטים הגבוהים שאני מביא. אשמח שנדבר על הפרויקט שלך.</p>
+                <h2>רומן גורניך | אני בוחר שיתופי פעולה</h2>
+                <p style="font-size: 1.2em; max-width: 700px; margin: 20px auto;">אני בוחר לעבוד רק על פרויקטים שתואמים לרמת המקצועיות ולסטנדרטים הגבוהים שאני מביא. אם הפרויקט שלך עומד בכך, צור איתי קשר ישיר.</p>
                 
                 <div class="contact-details">
-                    <p>✉️ <a href="mailto:your.email@example.com">roman0544545314@gmail.com</a></p>
-                    <p>📞 <a href="tel:+9725XXXXXXXX">054-4545314</a></p>
+                    <p>✉️ <a href="mailto:roman0544545314@gmail.com">roman0544545314@gmail.com</a></p>
+                    <p>📞 <a href="tel:+972544545314">054-4545314</a></p>
                     <a href="https://wa.me/+972544545314" class="cta-button" style="margin-top: 20px; background-color: var(--color-accent); color: var(--color-primary);">שלח לי הודעת וואטסאפ (לפניות רציניות)</a>
                 </div>
             </div>
@@ -403,5 +478,3 @@
 
 </body>
 </html>
-
-
